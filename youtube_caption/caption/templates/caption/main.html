@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>YouTube Caption Generator</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+    <div>
+
+        <center>
+            {% if error_msg %}
+            {{ error_msg }}
+            {% endif %}
+        </center>
+        
+        <form class="form-horizontal-center" action="{% url 'index' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              <label class="control-label col-sm-2">YouTube URL:</label>
+              <div class="col-sm-10">
+                <input class="form-control" id="url" type="text" name="url" placeholder="URl">
+              </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <input type="Submit" class="btn btn-danger"><br>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+</body>
+</html>
